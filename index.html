@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truth or Dare Challenges</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Trò chơi lựa chọn Thử Thách hay Sự Thật ️</h1>
+
+        <div id="notification" class="notification" style="display: none;"></div>
+
+        <div class="players">
+            <label for="player1">Người chơi 1:</label>
+            <input type="text" id="player1" placeholder="Nhập tên người chơi 1">
+
+            <label for="gender1">Giới tính:</label>
+            <select id="gender1">
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+                <option value="other">Khác</option>
+            </select>
+
+            <label for="player2">Nguời chơi 2:</label>
+            <input type="text" id="player2" placeholder="Nhập tên người chơi 2">
+
+            <label for="gender2">Giới tính:</label>
+            <select id="gender2">
+                <option value="female">Nữ</option>
+                <option value="male">Nam</option>
+                <option value="other">Khác</option>
+            </select>
+
+            <label for="level">Chọn cấp độ:</label>
+            <select id="level">
+                <option value="easy">Dễ</option>
+                <option value="medium">Trung bình</option>
+                <option value="hard">S3X 😈 couple</option>
+            </select>
+            
+            <button onclick="startGame()">Bắt đầu chơi🌚</button>
+        </div>
+
+        <div class="challenges" style="display: none;">
+            <h2>Chọn thử thách hoặc sự thật</h2>
+            <div class="challenge-buttons">
+                <button onclick="getRandomTruth()">Sự Thật</button>
+                <button onclick="getRandomDare()">Thử Thách</button>
+            </div>
+            <div class="skip-container">
+                <p id="skip-count">Số lượt bỏ qua còn lại: 3</p>
+                <button class="skip-button" onclick="skipChallenge()">Bỏ qua</button>
+            </div>
+            <p id="challenge-text">Nhấn vào nút bên trên để nhận một thử thách hoặc sự thật ngẫu nhiên!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Truth or Dare Challenges by . All rights reserved.</p>
+        <p>Chơi thêm các trò chơi thú vị tại <a href="https://www.facebook.com/Huyy.Sadboi" target="_blank">Trang chủ của chúng tôi</a>.</p>
+
+    </footer>
+    <audio id="clickSound">
+        <source src="mixkit-modern-click-box-check-1120.wav" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Thêm phần tử âm thanh cho âm thanh thua cuộc -->
+    <audio id="loser-sound" src="audio/loser-sound.mp3"></audio>
+    
+    <script>
+        function playClickSound() {
+            var clickSound = document.getElementById("clickSound");
+            clickSound.play();
+        }
+    
+        // Áp dụng sự kiện click cho các nút
+        var buttons = document.querySelectorAll("button");
+        buttons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                playClickSound();
+                // Thêm hàm xử lý click của bạn ở đây
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
